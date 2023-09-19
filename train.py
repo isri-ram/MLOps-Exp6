@@ -1,7 +1,7 @@
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import classification_report
 import pandas as pd
 import numpy as np
 import joblib
@@ -18,4 +18,4 @@ y_pred = model.predict(X_test)
 joblib.dump(model,os.path.join(model_dir,"logistic_model.joblib"))
 
 with open("metrics.txt",'w') as fw:
-  fw.write(f"Mean Squared Error of the current model:{mean_squared_error(y_test,y_pred)}")
+  fw.write(f"Mean Squared Error of the current model:{classification_report(y_test,y_pred)}")
